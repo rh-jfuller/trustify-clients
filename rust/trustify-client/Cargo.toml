@@ -1,0 +1,31 @@
+[package]
+name = "trustify-client"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Async Rust client for the Trustify software supply-chain security API"
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/rh-jfuller/trustify-clients"
+keywords = ["trustify", "sbom", "security", "openapi"]
+categories = ["api-bindings", "web-programming::http-client"]
+
+[dependencies]
+async-trait = "0.1"
+bytes = "1"
+chrono = { version = "0.4", default-features = false, features = ["serde"] }
+futures-core = "0.3"
+futures-timer = "3"
+progenitor-client = "=0.15.0"
+regress = "0.10"
+reqwest = { version = "0.13", features = ["json", "query", "stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_urlencoded = "0.7"
+thiserror = "2"
+url = "2"
+uuid = { version = "1", features = ["serde", "v4"] }
+
+[dev-dependencies]
+futures = "0.3"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }

@@ -1,0 +1,6 @@
+/target/
+/rust/target/
+.idea
+.DS_Store
+.envrc
+.env

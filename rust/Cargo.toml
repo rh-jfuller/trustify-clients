@@ -1,0 +1,4 @@
+[workspace]
+members = ["trustify-client", "xtask"]
+default-members = ["trustify-client"]
+resolver = "2"

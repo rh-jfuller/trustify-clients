@@ -6,7 +6,7 @@ use progenitor_client::{encode_path, ClientHooks, OperationInfo, RequestBuilderE
 #[allow(clippy::all)]
 pub mod types {
     ///`AdvisoryDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AdvisoryDetails {
         ///The identifier of the advisory, as provided by the document.
         pub document_id: ::std::string::String,
@@ -46,7 +46,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`AdvisoryHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AdvisoryHead {
         ///The identifier of the advisory, as provided by the document.
         pub document_id: ::std::string::String,
@@ -78,7 +78,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`AdvisorySummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AdvisorySummary {
         ///The identifier of the advisory, as provided by the document.
         pub document_id: ::std::string::String,
@@ -118,7 +118,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`AdvisoryVulnerabilityHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AdvisoryVulnerabilityHead {
         ///The main, base score.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -163,7 +163,7 @@ CVE identifier.*/
         }
     }
     ///Summary of information from this advisory regarding a single specific vulnerability.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct AdvisoryVulnerabilitySummary(pub AdvisoryVulnerabilityHead);
     impl ::std::ops::Deref for AdvisoryVulnerabilitySummary {
@@ -185,7 +185,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisAdvisory`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalysisAdvisory {
         ///The identifier of the advisory, as provided by the document.
         pub document_id: ::std::string::String,
@@ -219,7 +219,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`AnalysisDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalysisDetails {
         ///The main, base score.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -267,7 +267,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisDetailsV3`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalysisDetailsV3 {
         ///The main, base score.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -312,7 +312,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisPurlStatus`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalysisPurlStatus {
         pub advisory: AdvisoryHead,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -332,7 +332,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisRequest`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalysisRequest {
         pub purls: ::std::vec::Vec<::std::string::String>,
     }
@@ -342,7 +342,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisResponse`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct AnalysisResponse(
         pub ::std::collections::HashMap<::std::string::String, AnalysisResult>,
@@ -371,7 +371,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisResponseV3`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct AnalysisResponseV3(
         pub ::std::collections::HashMap<::std::string::String, AnalysisResultV3>,
@@ -403,7 +403,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisResult`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalysisResult {
         pub details: ::std::vec::Vec<AnalysisDetails>,
         pub warnings: ::std::vec::Vec<::std::string::String>,
@@ -414,7 +414,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisResultV3`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalysisResultV3 {
         pub details: ::std::vec::Vec<AnalysisDetailsV3>,
         pub warnings: ::std::vec::Vec<::std::string::String>,
@@ -425,7 +425,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisStatus`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalysisStatus {
         ///More details
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -447,7 +447,7 @@ CVE identifier.*/
         }
     }
     ///`AnalysisStatusDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalysisStatusDetails {
         pub cache: CacheStatusDetails,
     }
@@ -457,7 +457,7 @@ CVE identifier.*/
         }
     }
     ///Request body for triggering an Exploit Intelligence analysis.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalyzeRequest {
         ///The SBOM identifier to analyze.
         pub sbom_id: ::uuid::Uuid,
@@ -470,7 +470,7 @@ CVE identifier.*/
         }
     }
     ///Response returned when an analysis job is successfully created.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AnalyzeResponse {
         ///The unique job identifier.
         pub job_id: ::uuid::Uuid,
@@ -485,7 +485,7 @@ CVE identifier.*/
 
 Wraps an [`AuthMethod`] whose credentials are resolved from
 a [`CredentialSource`] at import time — not at configuration time.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct AuthConfig {
         pub method: AuthMethod,
     }
@@ -495,7 +495,7 @@ a [`CredentialSource`] at import time — not at configuration time.*/
         }
     }
     ///HTTP authentication method applied on each import request.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(tag = "type")]
     pub enum AuthMethod {
         ///HTTP Basic authentication.
@@ -509,7 +509,7 @@ a [`CredentialSource`] at import time — not at configuration time.*/
         ApiKey { header: ::std::string::String, value: CredentialSource },
     }
     ///`BasePurlDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct BasePurlDetails {
         pub purl: Purl,
         ///The ID of the base PURL
@@ -522,7 +522,7 @@ a [`CredentialSource`] at import time — not at configuration time.*/
         }
     }
     ///`BasePurlHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct BasePurlHead {
         pub purl: Purl,
         ///The ID of the base PURL
@@ -534,7 +534,7 @@ a [`CredentialSource`] at import time — not at configuration time.*/
         }
     }
     ///`BasePurlSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct BasePurlSummary(pub BasePurlHead);
     impl ::std::ops::Deref for BasePurlSummary {
@@ -558,7 +558,7 @@ raw CVSS vector string.
 
 Uses the same `ScoreType` and `Severity` serialization as [`crate::common::model::Score`]
 so that all score-related fields in API responses are consistent.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct BaseScore {
         pub score: f64,
         pub severity: Severity,
@@ -571,7 +571,7 @@ so that all score-related fields in API responses are consistent.*/
         }
     }
     ///`BaseSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct BaseSummary {
         pub cpe: ::std::vec::Vec<Cpe>,
         pub document_id: ::std::string::String,
@@ -631,7 +631,7 @@ so that all score-related fields in API responses are consistent.*/
         }
     }
     ///Request to assign multiple SBOMs to the same set of groups.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct BulkAssignmentRequest {
         ///The group IDs to assign to each SBOM (replaces existing assignments).
         pub group_ids: ::std::vec::Vec<::std::string::String>,
@@ -685,7 +685,7 @@ so that all score-related fields in API responses are consistent.*/
         }
     }
     ///`CacheStatusDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct CacheStatusDetails {
         ///The maximum number of bytes the cache will hold
         pub capacity: i64,
@@ -702,7 +702,7 @@ so that all score-related fields in API responses are consistent.*/
         }
     }
     ///`CacheStatusEntry`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct CacheStatusEntry {
         ///The number of edges in the graph
         pub edges: i64,
@@ -720,7 +720,7 @@ so that all score-related fields in API responses are consistent.*/
         }
     }
     ///`ClearlyDefinedCurationImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ClearlyDefinedCurationImporter {
         ///A description for users.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -743,7 +743,7 @@ so that all score-related fields in API responses are consistent.*/
         }
     }
     ///`ClearlyDefinedImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ClearlyDefinedImporter {
         ///A description for users.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -857,7 +857,7 @@ so that all score-related fields in API responses are consistent.*/
         }
     }
     ///`CommonImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct CommonImporter {
         ///A description for users.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -876,7 +876,7 @@ so that all score-related fields in API responses are consistent.*/
         }
     }
     ///Per-component analysis result within an analysis job.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ComponentResult {
         ///FK to advisory — set when a VEX document is ingested from the result.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -947,7 +947,7 @@ unsupported ecosystem) rather than genuinely failing.*/
         }
     }
     ///`CreateResponse`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct CreateResponse {
         ///The ID of the newly created group
         pub id: ::std::string::String,
@@ -962,7 +962,7 @@ unsupported ecosystem) rather than genuinely failing.*/
 Inline stores the value directly (dev only). Env and File store
 only a reference — the value is resolved from the environment or
 filesystem at each import run, enabling K8s Secret rotation.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(tag = "type", content = "value")]
     pub enum CredentialSource {
         /**Literal value stored in the database.
@@ -979,7 +979,7 @@ Prefer [`CredentialSource::Env`] or [`CredentialSource::File`] for production us
         File(::std::string::String),
     }
     ///`CsafImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct CsafImporter {
         ///A description for users.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1020,7 +1020,7 @@ Prefer [`CredentialSource::Env`] or [`CredentialSource::File`] for production us
         }
     }
     ///`CveImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct CveImporter {
         ///A description for users.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1048,7 +1048,7 @@ Prefer [`CredentialSource::Env`] or [`CredentialSource::File`] for production us
         }
     }
     ///`CweImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct CweImporter {
         ///A description for users.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1069,7 +1069,7 @@ Prefer [`CredentialSource::Env`] or [`CredentialSource::File`] for production us
         }
     }
     ///`ErrorInformation`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ErrorInformation {
         ///Human-readable error details
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1092,7 +1092,7 @@ The named fields are those every source can be expected to carry; everything
 specific to one source is in `metadata`. For CISA KEV, that is
 `vendor_project`, `product`, `vulnerability_name`, `short_description`,
 `required_action`, `known_ransomware_campaign_use`, `notes` and `cwes`.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct Exploit {
         ///The vulnerability this entry refers to.
         pub cve_id: ::std::string::String,
@@ -1176,7 +1176,7 @@ Represents the outcome of a vulnerability analysis for a given component/CVE pai
         }
     }
     ///Detailed view of an Exploit Intelligence analysis job.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ExploitIntelligenceJobDetails {
         ///Number of completed components (computed at query time, not stored).
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1292,7 +1292,7 @@ Represents the outcome of a vulnerability analysis for a given component/CVE pai
         }
     }
     ///Summary of an Exploit Intelligence analysis job.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ExploitIntelligenceJobSummary {
         ///Number of completed components (computed at query time, not stored).
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1342,7 +1342,7 @@ Represents the outcome of a vulnerability analysis for a given component/CVE pai
         }
     }
     ///`ExternalReferenceQuery`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, Default)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, Default, PartialEq)]
     pub struct ExternalReferenceQuery {
         ///Find by CPE
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1357,7 +1357,7 @@ Represents the outcome of a vulnerability analysis for a given component/CVE pai
         }
     }
     ///Information extracted from a package
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ExtractPackage {
         ///PURLs found as alias for this package
         pub purls: ::std::vec::Vec<::std::string::String>,
@@ -1368,7 +1368,7 @@ Represents the outcome of a vulnerability analysis for a given component/CVE pai
         }
     }
     ///Information extracted from an SBOM
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ExtractResult {
         pub format: Format,
         ///packages of the SBOM
@@ -1534,7 +1534,7 @@ Represents the outcome of a vulnerability analysis for a given component/CVE pai
         }
     }
     ///`Group`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct Group {
         ///A user friendly description
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1555,7 +1555,7 @@ Represents the outcome of a vulnerability analysis for a given component/CVE pai
         }
     }
     ///Result of listing SBOM groups, with optional resolved parent references.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct GroupListResult {
         pub items: ::std::vec::Vec<GroupListResultItemsItem>,
         /**Groups referenced by parent chains but not present in the primary result set.
@@ -1572,7 +1572,7 @@ Only present when `parents=resolve` is requested.*/
         }
     }
     ///Detailed group information, extends [`Group`]
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct GroupListResultItemsItem {
         ///A user friendly description
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1608,7 +1608,7 @@ This information is only present when requested.*/
         }
     }
     ///Mutable properties of a [`Group`].
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct GroupRequest {
         ///A user provided description
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1627,7 +1627,7 @@ This information is only present when requested.*/
         }
     }
     ///Pluggable file-discovery strategy for the HTTP importer.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub enum HttpDiscovery {
         #[serde(rename = "type")]
         Type(HttpDiscoveryType),
@@ -1693,7 +1693,7 @@ This information is only present when requested.*/
 Fetches documents from an HTTP repository, using a pluggable
 discovery strategy to enumerate files and an optional credential
 for authenticated sources.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct HttpImporter {
         ///Optional authentication configuration for accessing the source.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1776,7 +1776,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`Importer`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct Importer {
         pub configuration: ImporterConfiguration,
         ///The continuation token of the importer.
@@ -1816,7 +1816,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`ImporterConfiguration`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub enum ImporterConfiguration {
         #[serde(rename = "sbom")]
         Sbom(SbomImporter),
@@ -1897,7 +1897,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`ImporterData`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ImporterData {
         pub configuration: ImporterConfiguration,
         ///The continuation token of the importer.
@@ -1936,7 +1936,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`ImporterReport`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ImporterReport {
         ///The time the report was created
         pub creation: ::chrono::DateTime<::chrono::offset::Utc>,
@@ -1957,7 +1957,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`InfoResponse`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct InfoResponse {
         #[serde(default, skip_serializing_if = "::serde_json::Map::is_empty")]
         pub build: ::serde_json::Map<::std::string::String, ::serde_json::Value>,
@@ -1973,7 +1973,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///The result of the ingestion process
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct IngestResult {
         ///The ID declared by the document
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -1990,7 +1990,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
     }
     /**Importer configuration for known-exploited-vulnerability catalogs
 (e.g. CISA KEV).*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct KevImporter {
         /**Catalog source identifier under which the imported entries are stored
 (and replaced on each run). Defaults to "cisa-kev".*/
@@ -2016,7 +2016,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`Labels`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct Labels(
         pub ::std::collections::HashMap<::std::string::String, ::std::string::String>,
@@ -2106,7 +2106,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`LicenseInfo`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct LicenseInfo {
         pub license_name: ::std::string::String,
         pub license_type: LicenseCategory,
@@ -2117,7 +2117,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`LicenseRefMapping`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct LicenseRefMapping {
         pub license_id: ::std::string::String,
         pub license_name: ::std::string::String,
@@ -2128,7 +2128,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`LicenseSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct LicenseSummary {
         pub id: ::std::string::String,
         pub license: ::std::string::String,
@@ -2142,7 +2142,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`LicenseText`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct LicenseText {
         pub license: ::std::string::String,
     }
@@ -2319,7 +2319,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`Message`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct Message {
         ///The message
         pub message: ::std::string::String,
@@ -2331,7 +2331,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`Node`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct Node {
         ///All ancestors of this node. [`None`] if not requested on this level.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2362,7 +2362,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         }
     }
     ///`NvdImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct NvdImporter {
         ///A description for users.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2398,7 +2398,7 @@ years are imported and `start_year` is ignored.*/
         }
     }
     ///`OrganizationDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct OrganizationDetails {
         ///Advisories issued by the organization, if any.
         pub advisories: ::std::vec::Vec<AdvisoryHead>,
@@ -2420,7 +2420,7 @@ years are imported and `start_year` is ignored.*/
     }
     /**An organization who may issue advisories, product SBOMs, or
 otherwise be involved in supply-chain evidence.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct OrganizationHead {
         ///The `CPE` key of the organization, if known.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -2439,7 +2439,7 @@ otherwise be involved in supply-chain evidence.*/
         }
     }
     ///`OrganizationSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct OrganizationSummary(pub OrganizationHead);
     impl ::std::ops::Deref for OrganizationSummary {
@@ -2459,7 +2459,7 @@ otherwise be involved in supply-chain evidence.*/
         }
     }
     ///`OsvImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct OsvImporter {
         ///An optional branch. Will use the default branch otherwise.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2493,7 +2493,7 @@ otherwise be involved in supply-chain evidence.*/
         }
     }
     ///`PaginatedResultsAdvisorySummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsAdvisorySummary {
         pub items: ::std::vec::Vec<PaginatedResultsAdvisorySummaryItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2505,7 +2505,7 @@ otherwise be involved in supply-chain evidence.*/
         }
     }
     ///`PaginatedResultsAdvisorySummaryItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsAdvisorySummaryItemsItem {
         ///The identifier of the advisory, as provided by the document.
         pub document_id: ::std::string::String,
@@ -2545,7 +2545,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`PaginatedResultsBasePurlSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsBasePurlSummary {
         pub items: ::std::vec::Vec<BasePurlHead>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2557,7 +2557,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`PaginatedResultsExploit`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsExploit {
         pub items: ::std::vec::Vec<PaginatedResultsExploitItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2569,7 +2569,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`PaginatedResultsExploitIntelligenceJobSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsExploitIntelligenceJobSummary {
         pub items: ::std::vec::Vec<
             PaginatedResultsExploitIntelligenceJobSummaryItemsItem,
@@ -2583,7 +2583,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///Summary of an Exploit Intelligence analysis job.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsExploitIntelligenceJobSummaryItemsItem {
         ///Number of completed components (computed at query time, not stored).
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2639,7 +2639,7 @@ The named fields are those every source can be expected to carry; everything
 specific to one source is in `metadata`. For CISA KEV, that is
 `vendor_project`, `product`, `vulnerability_name`, `short_description`,
 `required_action`, `known_ransomware_campaign_use`, `notes` and `cwes`.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsExploitItemsItem {
         ///The vulnerability this entry refers to.
         pub cve_id: ::std::string::String,
@@ -2662,7 +2662,7 @@ specific to one source is in `metadata`. For CISA KEV, that is
         }
     }
     ///`PaginatedResultsGroupDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsGroupDetails {
         pub items: ::std::vec::Vec<PaginatedResultsGroupDetailsItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2674,7 +2674,7 @@ specific to one source is in `metadata`. For CISA KEV, that is
         }
     }
     ///Detailed group information, extends [`Group`]
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsGroupDetailsItemsItem {
         ///A user friendly description
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2710,7 +2710,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsImporterReport`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsImporterReport {
         pub items: ::std::vec::Vec<PaginatedResultsImporterReportItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2722,7 +2722,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsImporterReportItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsImporterReportItemsItem {
         ///The time the report was created
         pub creation: ::chrono::DateTime<::chrono::offset::Utc>,
@@ -2743,7 +2743,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsLicenseSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsLicenseSummary {
         pub items: ::std::vec::Vec<PaginatedResultsLicenseSummaryItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2755,7 +2755,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsLicenseSummaryItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsLicenseSummaryItemsItem {
         pub id: ::std::string::String,
         pub license: ::std::string::String,
@@ -2769,7 +2769,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsLicenseText`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsLicenseText {
         pub items: ::std::vec::Vec<PaginatedResultsLicenseTextItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2781,7 +2781,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsLicenseTextItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsLicenseTextItemsItem {
         pub license: ::std::string::String,
     }
@@ -2791,7 +2791,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsNode`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsNode {
         pub items: ::std::vec::Vec<PaginatedResultsNodeItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2803,7 +2803,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsNodeItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsNodeItemsItem {
         ///All ancestors of this node. [`None`] if not requested on this level.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2834,7 +2834,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsOrganizationSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsOrganizationSummary {
         pub items: ::std::vec::Vec<OrganizationSummary>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2846,7 +2846,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsProductSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsProductSummary {
         pub items: ::std::vec::Vec<PaginatedResultsProductSummaryItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2858,7 +2858,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsProductSummaryItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsProductSummaryItemsItem {
         pub id: ::std::string::String,
         pub name: ::std::string::String,
@@ -2872,7 +2872,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsPurlSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsPurlSummary {
         pub items: ::std::vec::Vec<PaginatedResultsPurlSummaryItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2884,7 +2884,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsPurlSummaryItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsPurlSummaryItemsItem {
         pub base: BasePurlHead,
         pub purl: Purl,
@@ -2902,7 +2902,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsSbomModel`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomModel {
         pub items: ::std::vec::Vec<PaginatedResultsSbomModelItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2914,7 +2914,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsSbomModelItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomModelItemsItem {
         ///The internal ID of a model
         pub id: ::std::string::String,
@@ -2934,7 +2934,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsSbomPackage`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomPackage {
         pub items: ::std::vec::Vec<PaginatedResultsSbomPackageItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -2946,7 +2946,7 @@ This information is only present when requested.*/
         }
     }
     ///`PaginatedResultsSbomPackageItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomPackageItemsItem {
         ///CPEs identifying the package
         pub cpe: ::std::vec::Vec<::std::string::String>,
@@ -2977,7 +2977,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomPackageRelationSbomPackage`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomPackageRelationSbomPackage {
         pub items: ::std::vec::Vec<
             PaginatedResultsSbomPackageRelationSbomPackageItemsItem,
@@ -2991,7 +2991,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomPackageRelationSbomPackageItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomPackageRelationSbomPackageItemsItem {
         pub package: PaginatedResultsSbomPackageRelationSbomPackageItemsItemPackage,
         pub relationship: Relationship,
@@ -3002,7 +3002,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomPackageRelationSbomPackageItemsItemPackage`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomPackageRelationSbomPackageItemsItemPackage {
         ///CPEs identifying the package
         pub cpe: ::std::vec::Vec<::std::string::String>,
@@ -3033,7 +3033,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomSummary {
         pub items: ::std::vec::Vec<PaginatedResultsSbomSummaryItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3045,7 +3045,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomSummaryItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomSummaryItemsItem {
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub advisories: ::std::option::Option<RequestedFieldHashMapHashMap>,
@@ -3077,7 +3077,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomSummarySbomPackage`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomSummarySbomPackage {
         pub items: ::std::vec::Vec<PaginatedResultsSbomSummarySbomPackageItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3089,7 +3089,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomSummarySbomPackageItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomSummarySbomPackageItemsItem {
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub advisories: ::std::option::Option<RequestedFieldHashMapHashMap>,
@@ -3123,7 +3123,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomSummarySbomPackageItemsItemDescribedByItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomSummarySbomPackageItemsItemDescribedByItem {
         ///CPEs identifying the package
         pub cpe: ::std::vec::Vec<::std::string::String>,
@@ -3154,7 +3154,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomSummarySbomPackageSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomSummarySbomPackageSummary {
         pub items: ::std::vec::Vec<
             PaginatedResultsSbomSummarySbomPackageSummaryItemsItem,
@@ -3168,7 +3168,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomSummarySbomPackageSummaryItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomSummarySbomPackageSummaryItemsItem {
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub advisories: ::std::option::Option<RequestedFieldHashMapHashMap>,
@@ -3202,7 +3202,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSbomSummarySbomPackageSummaryItemsItemDescribedByItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSbomSummarySbomPackageSummaryItemsItemDescribedByItem {
         ///An optional group/namespace for an SBOM package
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3221,7 +3221,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSpdxLicenseSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSpdxLicenseSummary {
         pub items: ::std::vec::Vec<PaginatedResultsSpdxLicenseSummaryItemsItem>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3233,7 +3233,7 @@ release.*/
         }
     }
     ///`PaginatedResultsSpdxLicenseSummaryItemsItem`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsSpdxLicenseSummaryItemsItem {
         pub id: ::std::string::String,
         pub name: ::std::string::String,
@@ -3244,7 +3244,7 @@ release.*/
         }
     }
     ///`PaginatedResultsVulnerabilitySummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsVulnerabilitySummary {
         pub items: ::std::vec::Vec<VulnerabilityHead>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3256,7 +3256,7 @@ release.*/
         }
     }
     ///`PaginatedResultsWeaknessSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsWeaknessSummary {
         pub items: ::std::vec::Vec<WeaknessSummary>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3271,7 +3271,7 @@ release.*/
 
 Applies cartesian product semantics: each SBOM in `sbom_ids` gets all `add` groups
 added and all `remove` groups removed, while preserving other existing assignments.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PatchAssignmentRequest {
         ///Group IDs to add to each SBOM's assignments.
         #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
@@ -3288,7 +3288,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         }
     }
     ///`ProductDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ProductDetails {
         pub id: ::std::string::String,
         pub name: ::std::string::String,
@@ -3302,7 +3302,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         }
     }
     ///`ProductHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ProductHead {
         pub id: ::std::string::String,
         pub name: ::std::string::String,
@@ -3313,7 +3313,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         }
     }
     ///`ProductSbomHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ProductSbomHead {
         pub labels: Labels,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -3325,7 +3325,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         }
     }
     ///`ProductSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ProductSummary {
         pub id: ::std::string::String,
         pub name: ::std::string::String,
@@ -3339,7 +3339,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         }
     }
     ///`ProductVersionDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ProductVersionDetails {
         pub id: ::std::string::String,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3354,7 +3354,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         }
     }
     ///`ProductVersionHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ProductVersionHead {
         pub id: ::std::string::String,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3367,7 +3367,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         }
     }
     ///`Progress`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct Progress {
         ///The current processed items.
         pub current: i32,
@@ -3392,7 +3392,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         }
     }
     ///`ProgressDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ProgressDetails {
         ///The current processed items.
         pub current: i32,
@@ -3456,7 +3456,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         }
     }
     ///`PurlAdvisory`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PurlAdvisory {
         ///The identifier of the advisory, as provided by the document.
         pub document_id: ::std::string::String,
@@ -3489,7 +3489,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`PurlDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PurlDetails {
         pub advisories: ::std::vec::Vec<PurlAdvisory>,
         pub base: BasePurlHead,
@@ -3506,7 +3506,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`PurlHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PurlHead {
         pub purl: Purl,
         ///The ID of the qualified PURL
@@ -3518,7 +3518,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`PurlStatus`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PurlStatus {
         pub advisory: AdvisoryHead,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -3537,7 +3537,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`PurlSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PurlSummary {
         pub base: BasePurlHead,
         pub purl: Purl,
@@ -3555,7 +3555,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`QuayImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct QuayImporter {
         ///Authentication configuration for accessing the Quay registry.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3595,7 +3595,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`RecommendEntry`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RecommendEntry {
         pub package: ::std::string::String,
         pub vulnerabilities: ::std::vec::Vec<VulnerabilityStatus>,
@@ -3606,7 +3606,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///High-level impact summary for a recommendation report.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RecommendReportImpactSummary {
         ///Count of distinct upstream packages that have a vendor recommendation.
         pub addressable_packages: u64,
@@ -3619,7 +3619,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///A deduplicated package entry in a recommendation report.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RecommendReportPackage {
         ///Advisory ID that provides provenance for the recommendation.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -3639,7 +3639,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///Request body for the `POST /v3/recommend/report` endpoint.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RecommendReportRequest {
         ///SBOM IDs to include in the report.
         pub sbom_ids: ::std::vec::Vec<::uuid::Uuid>,
@@ -3650,7 +3650,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///Aggregated recommendation report for a set of SBOMs.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RecommendReportResponse {
         pub impact_summary: RecommendReportImpactSummary,
         ///Deduplicated list of packages with vendor recommendations.
@@ -3664,7 +3664,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///Per-SBOM summary in a recommendation report.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RecommendReportSbom {
         ///Number of packages in this SBOM that have a vendor recommendation.
         pub addressable_packages: u64,
@@ -3681,7 +3681,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`RecommendRequest`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RecommendRequest {
         pub purls: ::std::vec::Vec<Purl>,
     }
@@ -3691,7 +3691,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`RecommendResponse`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RecommendResponse {
         pub recommendations: ::std::collections::HashMap<
             ::std::string::String,
@@ -3886,7 +3886,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`RemediationSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RemediationSummary {
         pub category: RemediationCategory,
         ///For internal use only. May be removed at any point and should not be used.
@@ -3953,7 +3953,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`Report`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct Report {
         ///End of the import run
         #[serde(rename = "endDate")]
@@ -3983,7 +3983,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`RequestedFieldHashMapHashMap`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct RequestedFieldHashMapHashMap(
         pub ::std::collections::HashMap<::std::string::String, i64>,
@@ -4007,7 +4007,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`RequestedFieldI64I64`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct RequestedFieldI64I64(pub i64);
     impl ::std::ops::Deref for RequestedFieldI64I64 {
@@ -4050,7 +4050,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`RequestedFieldVecVecScoredVector`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct RequestedFieldVecVecScoredVector(
         pub ::std::vec::Vec<RequestedFieldVecVecScoredVectorItem>,
@@ -4075,7 +4075,7 @@ determined, this field will not be included in a response.*/
     }
     /**A CVSS score combined with its raw vector string, for contexts where clients need both
 the pre-parsed numeric values and the original vector for display or re-parsing.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RequestedFieldVecVecScoredVectorItem {
         pub severity: Severity,
         #[serde(rename = "type")]
@@ -4094,7 +4094,7 @@ the pre-parsed numeric values and the original vector for display or re-parsing.
 
 If the revision should not be part of the payload, but e.g. an HTTP header (like `ETag`), this
 struct can help carrying both pieces.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RevisionedImporter {
         /**The revision.
 
@@ -4108,7 +4108,7 @@ An opaque string that should have no meaning to the user, only to the backend.*/
         }
     }
     ///`RevisionedImporterValue`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct RevisionedImporterValue {
         pub configuration: ImporterConfiguration,
         ///The continuation token of the importer.
@@ -4148,7 +4148,7 @@ An opaque string that should have no meaning to the user, only to the backend.*/
         }
     }
     ///`SbomAdvisory`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SbomAdvisory {
         ///The identifier of the advisory, as provided by the document.
         pub document_id: ::std::string::String,
@@ -4181,7 +4181,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`SbomHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SbomHead {
         ///Authors of the SBOM
         pub authors: ::std::vec::Vec<::std::string::String>,
@@ -4204,7 +4204,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`SbomImporter`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SbomImporter {
         ///A description for users.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -4252,7 +4252,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`SbomModel`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SbomModel {
         ///The internal ID of a model
         pub id: ::std::string::String,
@@ -4272,7 +4272,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`SbomPackage`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SbomPackage {
         ///CPEs identifying the package
         pub cpe: ::std::vec::Vec<::std::string::String>,
@@ -4303,7 +4303,7 @@ release.*/
         }
     }
     ///`SbomPackageSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SbomPackageSummary {
         ///An optional group/namespace for an SBOM package
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -4322,7 +4322,7 @@ release.*/
         }
     }
     ///`SbomStatus`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SbomStatus {
         ///The main, base score.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -4372,7 +4372,7 @@ CVE identifier.*/
         }
     }
     ///`SbomSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SbomSummary {
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub advisories: ::std::option::Option<RequestedFieldHashMapHashMap>,
@@ -4404,7 +4404,7 @@ CVE identifier.*/
         }
     }
     ///A parsed CVSS score: the scoring system version, numeric value, and derived severity.
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct Score {
         pub severity: Severity,
         #[serde(rename = "type")]
@@ -4482,7 +4482,7 @@ CVE identifier.*/
     }
     /**A CVSS score combined with its raw vector string, for contexts where clients need both
 the pre-parsed numeric values and the original vector for display or re-parsing.*/
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ScoredVector {
         pub severity: Severity,
         #[serde(rename = "type")]
@@ -4565,7 +4565,7 @@ the pre-parsed numeric values and the original vector for display or re-parsing.
         }
     }
     ///`SourceDocument`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SourceDocument {
         ///The timestamp the document was ingested
         pub ingested: ::chrono::DateTime<::chrono::offset::Utc>,
@@ -4580,7 +4580,7 @@ the pre-parsed numeric values and the original vector for display or re-parsing.
         }
     }
     ///`SpdxLicenseDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SpdxLicenseDetails {
         pub id: ::std::string::String,
         pub name: ::std::string::String,
@@ -4592,7 +4592,7 @@ the pre-parsed numeric values and the original vector for display or re-parsing.
         }
     }
     ///`SpdxLicenseSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SpdxLicenseSummary {
         pub id: ::std::string::String,
         pub name: ::std::string::String,
@@ -4658,7 +4658,7 @@ the pre-parsed numeric values and the original vector for display or re-parsing.
         }
     }
     ///`StatusContext`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub enum StatusContext {
         #[serde(rename = "purl")]
         Purl(Purl),
@@ -4674,7 +4674,7 @@ the pre-parsed numeric values and the original vector for display or re-parsing.
 
 This is a key/value set, where the value can be a string for setting that value, or `null` for removing the label.
 */
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct Update(
         pub ::std::collections::HashMap<
@@ -4978,7 +4978,7 @@ This is a key/value set, where the value can be a string for setting that value,
         }
     }
     ///`VersionRange`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(untagged)]
     pub enum VersionRange {
         Variant0 {
@@ -5000,7 +5000,7 @@ This is a key/value set, where the value can be a string for setting that value,
         },
     }
     ///`VersionedPurlHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct VersionedPurlHead {
         pub purl: Purl,
         ///The ID of the versioned PURL
@@ -5014,7 +5014,7 @@ This is a key/value set, where the value can be a string for setting that value,
         }
     }
     ///`VersionedPurlSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct VersionedPurlSummary {
         pub base: BasePurlHead,
         pub purl: Purl,
@@ -5030,7 +5030,7 @@ This is a key/value set, where the value can be a string for setting that value,
         }
     }
     ///`VexJustification`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub enum VexJustification {
         ComponentNotPresent,
         VulnerableCodeNotPresent,
@@ -5041,7 +5041,7 @@ This is a key/value set, where the value can be a string for setting that value,
         Other(::std::string::String),
     }
     ///`VexStatus`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub enum VexStatus {
         Affected,
         Fixed,
@@ -5051,7 +5051,7 @@ This is a key/value set, where the value can be a string for setting that value,
         Other(::std::string::String),
     }
     ///`VulnerabilityAdvisoryHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct VulnerabilityAdvisoryHead {
         ///The identifier of the advisory, as provided by the document.
         pub document_id: ::std::string::String,
@@ -5085,7 +5085,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`VulnerabilityAdvisoryStatus`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct VulnerabilityAdvisoryStatus {
         pub base_purl: BasePurlHead,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -5098,7 +5098,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`VulnerabilityAdvisorySummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct VulnerabilityAdvisorySummary {
         ///The identifier of the advisory, as provided by the document.
         pub document_id: ::std::string::String,
@@ -5140,7 +5140,7 @@ determined, this field will not be included in a response.*/
         }
     }
     ///`VulnerabilityDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct VulnerabilityDetails {
         ///Advisories addressing this vulnerability, if any.
         pub advisories: ::std::vec::Vec<VulnerabilityAdvisorySummary>,
@@ -5192,7 +5192,7 @@ Only present when the `scores` query parameter is set to `true`.*/
         }
     }
     ///`VulnerabilityHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct VulnerabilityHead {
         ///The main, base score.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -5235,7 +5235,7 @@ CVE identifier.*/
         }
     }
     ///`VulnerabilitySbomStatus`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct VulnerabilitySbomStatus {
         ///Authors of the SBOM
         pub authors: ::std::vec::Vec<::std::string::String>,
@@ -5264,7 +5264,7 @@ CVE identifier.*/
         }
     }
     ///`VulnerabilityStatus`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct VulnerabilityStatus {
         pub id: ::std::string::String,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -5279,7 +5279,7 @@ CVE identifier.*/
         }
     }
     ///`VulnerabilitySummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct VulnerabilitySummary(pub VulnerabilityHead);
     impl ::std::ops::Deref for VulnerabilitySummary {
@@ -5299,7 +5299,7 @@ CVE identifier.*/
         }
     }
     ///`WeaknessDetails`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct WeaknessDetails {
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub can_also_be: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -5331,7 +5331,7 @@ CVE identifier.*/
         }
     }
     ///`WeaknessHead`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct WeaknessHead {
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub description: ::std::option::Option<::std::string::String>,
@@ -5343,7 +5343,7 @@ CVE identifier.*/
         }
     }
     ///`WeaknessSummary`
-    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug)]
+    #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     #[serde(transparent)]
     pub struct WeaknessSummary(pub WeaknessHead);
     impl ::std::ops::Deref for WeaknessSummary {

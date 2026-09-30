@@ -40,7 +40,8 @@ fn generate_api() -> anyhow::Result<()> {
         .with_interface(InterfaceStyle::Builder)
         .with_tag(TagStyle::Separate)
         .with_inner_type(quote! { crate::auth::ClientContext })
-        .with_pre_hook_async(quote! { crate::client::prepare_request });
+        .with_pre_hook_async(quote! { crate::client::prepare_request })
+        .with_derive("PartialEq");
 
     let mut generator = Generator::new(&settings);
     let tokens = generator

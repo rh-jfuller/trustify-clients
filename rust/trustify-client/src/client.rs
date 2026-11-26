@@ -234,14 +234,14 @@ impl ClientHooks<ClientContext> for api::Client {
 /// checked on native platforms because `reqwest` on `wasm32` delegates to
 /// the browser `fetch` API, which does not surface connection-level failures.
 fn is_retryable_error(error: &reqwest::Error) -> bool {
-    if error.is_timeout() {
-        return true;
-    }
     #[cfg(not(target_arch = "wasm32"))]
-    if error.is_connect() {
-        return true;
+    {
+        error.is_timeout() || error.is_connect()
     }
-    false
+    #[cfg(target_arch = "wasm32")]
+    {
+        error.is_timeout()
+    }
 }
 
 fn is_retryable_status(status: reqwest::StatusCode) -> bool {

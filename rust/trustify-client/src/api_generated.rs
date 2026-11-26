@@ -13,7 +13,7 @@ pub mod types {
         ///The identifier of the advisory, as assigned by the issuing organization.
         pub identifier: ::std::string::String,
         ///The timestamp the document was ingested
-        pub ingested: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub ingested: ::jiff::Timestamp,
         /**The issuer of the advisory, if known. If no issuer is able to be
 determined, this field will not be included in a response.*/
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -21,10 +21,10 @@ determined, this field will not be included in a response.*/
         pub labels: Labels,
         ///The date (in RFC3339 format) of when the advisory was last modified, if any.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the advisory was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub sha256: ::std::string::String,
         pub sha384: ::std::string::String,
         pub sha512: ::std::string::String,
@@ -38,7 +38,7 @@ determined, this field will not be included in a response.*/
         pub vulnerabilities: ::std::vec::Vec<AdvisoryVulnerabilitySummary>,
         ///The date (in RFC3339 format) of when the advisory was withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl AdvisoryDetails {
         pub fn builder() -> builder::AdvisoryDetails {
@@ -59,10 +59,10 @@ determined, this field will not be included in a response.*/
         pub labels: Labels,
         ///The date (in RFC3339 format) of when the advisory was last modified, if any.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the advisory was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///The title of the advisory as assigned by the issuing organization.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
         pub title: ::std::option::Option<::std::string::String>,
@@ -70,7 +70,7 @@ determined, this field will not be included in a response.*/
         pub uuid: ::std::string::String,
         ///The date (in RFC3339 format) of when the advisory was withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl AdvisoryHead {
         pub fn builder() -> builder::AdvisoryHead {
@@ -85,7 +85,7 @@ determined, this field will not be included in a response.*/
         ///The identifier of the advisory, as assigned by the issuing organization.
         pub identifier: ::std::string::String,
         ///The timestamp the document was ingested
-        pub ingested: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub ingested: ::jiff::Timestamp,
         /**The issuer of the advisory, if known. If no issuer is able to be
 determined, this field will not be included in a response.*/
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -93,10 +93,10 @@ determined, this field will not be included in a response.*/
         pub labels: Labels,
         ///The date (in RFC3339 format) of when the advisory was last modified, if any.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the advisory was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub sha256: ::std::string::String,
         pub sha384: ::std::string::String,
         pub sha512: ::std::string::String,
@@ -110,7 +110,7 @@ determined, this field will not be included in a response.*/
         pub vulnerabilities: ::std::vec::Vec<AdvisoryVulnerabilityHead>,
         ///The date (in RFC3339 format) of when the advisory was withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl AdvisorySummary {
         pub fn builder() -> builder::AdvisorySummary {
@@ -130,24 +130,24 @@ determined, this field will not be included in a response.*/
         pub description: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was discovered, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub discovered: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub discovered: ::std::option::Option<::jiff::Timestamp>,
         /**The globally-unique identifier for the vulnerability.
 Traditionally (but not required) refers to the assigned
 CVE identifier.*/
         pub identifier: ::std::string::String,
         ///The date (in RFC3339 format) of when the vulnerability was last modified, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         pub normative: bool,
         ///The date (in RFC3339 format) of when the vulnerability was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when software containing the vulnerability first released, if known.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub released: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub released: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the vulnerability identifier was reserved, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub reserved: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub reserved: ::std::option::Option<::jiff::Timestamp>,
         ///All CVSS scores with their raw vector strings from the advisory for this vulnerability.
         pub scores: ::std::vec::Vec<ScoredVector>,
         ///The title of the vulnerability, if known.
@@ -155,7 +155,7 @@ CVE identifier.*/
         pub title: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was last withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl AdvisoryVulnerabilityHead {
         pub fn builder() -> builder::AdvisoryVulnerabilityHead {
@@ -198,10 +198,10 @@ determined, this field will not be included in a response.*/
         pub labels: Labels,
         ///The date (in RFC3339 format) of when the advisory was last modified, if any.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the advisory was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///CVSS scores
         pub scores: ::std::vec::Vec<Score>,
         ///The title of the advisory as assigned by the issuing organization.
@@ -211,7 +211,7 @@ determined, this field will not be included in a response.*/
         pub uuid: ::std::string::String,
         ///The date (in RFC3339 format) of when the advisory was withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl AnalysisAdvisory {
         pub fn builder() -> builder::AnalysisAdvisory {
@@ -231,24 +231,24 @@ determined, this field will not be included in a response.*/
         pub description: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was discovered, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub discovered: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub discovered: ::std::option::Option<::jiff::Timestamp>,
         /**The globally-unique identifier for the vulnerability.
 Traditionally (but not required) refers to the assigned
 CVE identifier.*/
         pub identifier: ::std::string::String,
         ///The date (in RFC3339 format) of when the vulnerability was last modified, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         pub normative: bool,
         ///The date (in RFC3339 format) of when the vulnerability was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when software containing the vulnerability first released, if known.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub released: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub released: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the vulnerability identifier was reserved, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub reserved: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub reserved: ::std::option::Option<::jiff::Timestamp>,
         ///List of purl statuses
         pub status: ::std::collections::HashMap<
             ::std::string::String,
@@ -259,7 +259,7 @@ CVE identifier.*/
         pub title: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was last withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl AnalysisDetails {
         pub fn builder() -> builder::AnalysisDetails {
@@ -279,32 +279,32 @@ CVE identifier.*/
         pub description: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was discovered, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub discovered: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub discovered: ::std::option::Option<::jiff::Timestamp>,
         /**The globally-unique identifier for the vulnerability.
 Traditionally (but not required) refers to the assigned
 CVE identifier.*/
         pub identifier: ::std::string::String,
         ///The date (in RFC3339 format) of when the vulnerability was last modified, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         pub normative: bool,
         ///The date (in RFC3339 format) of when the vulnerability was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///List of purl statuses & remediations
         pub purl_statuses: ::std::vec::Vec<AnalysisPurlStatus>,
         ///The date (in RFC3339 format) of when software containing the vulnerability first released, if known.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub released: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub released: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the vulnerability identifier was reserved, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub reserved: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub reserved: ::std::option::Option<::jiff::Timestamp>,
         ///The title of the vulnerability, if known.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
         pub title: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was last withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl AnalysisDetailsV3 {
         pub fn builder() -> builder::AnalysisDetailsV3 {
@@ -1098,14 +1098,14 @@ specific to one source is in `metadata`. For CISA KEV, that is
         pub cve_id: ::std::string::String,
         ///The date the source first reported the exploitation.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub date_reported: ::std::option::Option<::chrono::naive::NaiveDate>,
+        pub date_reported: ::std::option::Option<::jiff::civil::Date>,
         ///Opaque identifier of this entry, stable across resyncs of the source.
         pub id: ::std::string::String,
         ///Structured data specific to the reporting source.
         pub metadata: ::serde_json::Map<::std::string::String, ::serde_json::Value>,
         ///The date by which the source mandates remediation, if it mandates one.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub remediation_due_date: ::std::option::Option<::chrono::naive::NaiveDate>,
+        pub remediation_due_date: ::std::option::Option<::jiff::civil::Date>,
         ///The source that reported the exploitation (e.g. "cisa-kev").
         pub source: ::std::string::String,
     }
@@ -1784,7 +1784,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         pub continuation: ::std::option::Option<::serde_json::Value>,
         ///The last state change
         #[serde(rename = "lastChange")]
-        pub last_change: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub last_change: ::jiff::Timestamp,
         ///The error of the last run (empty if successful)
         #[serde(
             rename = "lastError",
@@ -1796,15 +1796,13 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
             rename = "lastRun",
             skip_serializing_if = "::std::option::Option::is_none"
         )]
-        pub last_run: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub last_run: ::std::option::Option<::jiff::Timestamp>,
         ///The last successful run
         #[serde(
             rename = "lastSuccess",
             skip_serializing_if = "::std::option::Option::is_none"
         )]
-        pub last_success: ::std::option::Option<
-            ::chrono::DateTime<::chrono::offset::Utc>,
-        >,
+        pub last_success: ::std::option::Option<::jiff::Timestamp>,
         pub name: ::std::string::String,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub progress: ::std::option::Option<Progress>,
@@ -1905,7 +1903,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
         pub continuation: ::std::option::Option<::serde_json::Value>,
         ///The last state change
         #[serde(rename = "lastChange")]
-        pub last_change: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub last_change: ::jiff::Timestamp,
         ///The error of the last run (empty if successful)
         #[serde(
             rename = "lastError",
@@ -1917,15 +1915,13 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
             rename = "lastRun",
             skip_serializing_if = "::std::option::Option::is_none"
         )]
-        pub last_run: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub last_run: ::std::option::Option<::jiff::Timestamp>,
         ///The last successful run
         #[serde(
             rename = "lastSuccess",
             skip_serializing_if = "::std::option::Option::is_none"
         )]
-        pub last_success: ::std::option::Option<
-            ::chrono::DateTime<::chrono::offset::Utc>,
-        >,
+        pub last_success: ::std::option::Option<::jiff::Timestamp>,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub progress: ::std::option::Option<Progress>,
         pub state: State,
@@ -1939,7 +1935,7 @@ Either an internal ID of the document with the `urn:uuid:` scheme. Or using a di
     #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct ImporterReport {
         ///The time the report was created
-        pub creation: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub creation: ::jiff::Timestamp,
         ///Errors captured by the report
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub error: ::std::option::Option<::std::string::String>,
@@ -2512,7 +2508,7 @@ otherwise be involved in supply-chain evidence.*/
         ///The identifier of the advisory, as assigned by the issuing organization.
         pub identifier: ::std::string::String,
         ///The timestamp the document was ingested
-        pub ingested: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub ingested: ::jiff::Timestamp,
         /**The issuer of the advisory, if known. If no issuer is able to be
 determined, this field will not be included in a response.*/
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -2520,10 +2516,10 @@ determined, this field will not be included in a response.*/
         pub labels: Labels,
         ///The date (in RFC3339 format) of when the advisory was last modified, if any.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the advisory was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub sha256: ::std::string::String,
         pub sha384: ::std::string::String,
         pub sha512: ::std::string::String,
@@ -2537,7 +2533,7 @@ determined, this field will not be included in a response.*/
         pub vulnerabilities: ::std::vec::Vec<AdvisoryVulnerabilityHead>,
         ///The date (in RFC3339 format) of when the advisory was withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl PaginatedResultsAdvisorySummaryItemsItem {
         pub fn builder() -> builder::PaginatedResultsAdvisorySummaryItemsItem {
@@ -2645,14 +2641,14 @@ specific to one source is in `metadata`. For CISA KEV, that is
         pub cve_id: ::std::string::String,
         ///The date the source first reported the exploitation.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub date_reported: ::std::option::Option<::chrono::naive::NaiveDate>,
+        pub date_reported: ::std::option::Option<::jiff::civil::Date>,
         ///Opaque identifier of this entry, stable across resyncs of the source.
         pub id: ::std::string::String,
         ///Structured data specific to the reporting source.
         pub metadata: ::serde_json::Map<::std::string::String, ::serde_json::Value>,
         ///The date by which the source mandates remediation, if it mandates one.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub remediation_due_date: ::std::option::Option<::chrono::naive::NaiveDate>,
+        pub remediation_due_date: ::std::option::Option<::jiff::civil::Date>,
         ///The source that reported the exploitation (e.g. "cisa-kev").
         pub source: ::std::string::String,
     }
@@ -2725,7 +2721,7 @@ This information is only present when requested.*/
     #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct PaginatedResultsImporterReportItemsItem {
         ///The time the report was created
-        pub creation: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub creation: ::jiff::Timestamp,
         ///Errors captured by the report
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub error: ::std::option::Option<::std::string::String>,
@@ -3057,13 +3053,13 @@ release.*/
         pub document_id: ::std::option::Option<::std::string::String>,
         pub id: ::std::string::String,
         ///The timestamp the document was ingested
-        pub ingested: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub ingested: ::jiff::Timestamp,
         pub labels: Labels,
         pub name: ::std::string::String,
         ///The number of packages this SBOM has
         pub number_of_packages: i64,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub sha256: ::std::string::String,
         pub sha384: ::std::string::String,
         pub sha512: ::std::string::String,
@@ -3103,13 +3099,13 @@ release.*/
         pub document_id: ::std::option::Option<::std::string::String>,
         pub id: ::std::string::String,
         ///The timestamp the document was ingested
-        pub ingested: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub ingested: ::jiff::Timestamp,
         pub labels: Labels,
         pub name: ::std::string::String,
         ///The number of packages this SBOM has
         pub number_of_packages: i64,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub sha256: ::std::string::String,
         pub sha384: ::std::string::String,
         pub sha512: ::std::string::String,
@@ -3182,13 +3178,13 @@ release.*/
         pub document_id: ::std::option::Option<::std::string::String>,
         pub id: ::std::string::String,
         ///The timestamp the document was ingested
-        pub ingested: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub ingested: ::jiff::Timestamp,
         pub labels: Labels,
         pub name: ::std::string::String,
         ///The number of packages this SBOM has
         pub number_of_packages: i64,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub sha256: ::std::string::String,
         pub sha384: ::std::string::String,
         pub sha512: ::std::string::String,
@@ -3317,7 +3313,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
     pub struct ProductSbomHead {
         pub labels: Labels,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
     }
     impl ProductSbomHead {
         pub fn builder() -> builder::ProductSbomHead {
@@ -3373,7 +3369,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         pub current: i32,
         ///The estimated time of completion.
         #[serde(rename = "estimatedCompletion")]
-        pub estimated_completion: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub estimated_completion: ::jiff::Timestamp,
         ///The estimated remaining time in seconds.
         #[serde(rename = "estimatedSecondsRemaining")]
         pub estimated_seconds_remaining: i64,
@@ -3398,7 +3394,7 @@ added and all `remove` groups removed, while preserving other existing assignmen
         pub current: i32,
         ///The estimated time of completion.
         #[serde(rename = "estimatedCompletion")]
-        pub estimated_completion: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub estimated_completion: ::jiff::Timestamp,
         ///The estimated remaining time in seconds.
         #[serde(rename = "estimatedSecondsRemaining")]
         pub estimated_seconds_remaining: i64,
@@ -3469,10 +3465,10 @@ determined, this field will not be included in a response.*/
         pub labels: Labels,
         ///The date (in RFC3339 format) of when the advisory was last modified, if any.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the advisory was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub status: ::std::vec::Vec<PurlStatus>,
         ///The title of the advisory as assigned by the issuing organization.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -3481,7 +3477,7 @@ determined, this field will not be included in a response.*/
         pub uuid: ::std::string::String,
         ///The date (in RFC3339 format) of when the advisory was withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl PurlAdvisory {
         pub fn builder() -> builder::PurlAdvisory {
@@ -3957,7 +3953,7 @@ determined, this field will not be included in a response.*/
     pub struct Report {
         ///End of the import run
         #[serde(rename = "endDate")]
-        pub end_date: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub end_date: ::jiff::Timestamp,
         ///Messages emitted during processing
         #[serde(
             default,
@@ -3975,7 +3971,7 @@ determined, this field will not be included in a response.*/
         pub number_of_items: ::std::option::Option<u64>,
         ///Start of the import run
         #[serde(rename = "startDate")]
-        pub start_date: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub start_date: ::jiff::Timestamp,
     }
     impl Report {
         pub fn builder() -> builder::Report {
@@ -4116,7 +4112,7 @@ An opaque string that should have no meaning to the user, only to the backend.*/
         pub continuation: ::std::option::Option<::serde_json::Value>,
         ///The last state change
         #[serde(rename = "lastChange")]
-        pub last_change: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub last_change: ::jiff::Timestamp,
         ///The error of the last run (empty if successful)
         #[serde(
             rename = "lastError",
@@ -4128,15 +4124,13 @@ An opaque string that should have no meaning to the user, only to the backend.*/
             rename = "lastRun",
             skip_serializing_if = "::std::option::Option::is_none"
         )]
-        pub last_run: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub last_run: ::std::option::Option<::jiff::Timestamp>,
         ///The last successful run
         #[serde(
             rename = "lastSuccess",
             skip_serializing_if = "::std::option::Option::is_none"
         )]
-        pub last_success: ::std::option::Option<
-            ::chrono::DateTime<::chrono::offset::Utc>,
-        >,
+        pub last_success: ::std::option::Option<::jiff::Timestamp>,
         pub name: ::std::string::String,
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
         pub progress: ::std::option::Option<Progress>,
@@ -4161,10 +4155,10 @@ determined, this field will not be included in a response.*/
         pub labels: Labels,
         ///The date (in RFC3339 format) of when the advisory was last modified, if any.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the advisory was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub status: ::std::vec::Vec<SbomStatus>,
         ///The title of the advisory as assigned by the issuing organization.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
@@ -4173,7 +4167,7 @@ determined, this field will not be included in a response.*/
         pub uuid: ::std::string::String,
         ///The date (in RFC3339 format) of when the advisory was withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl SbomAdvisory {
         pub fn builder() -> builder::SbomAdvisory {
@@ -4194,7 +4188,7 @@ determined, this field will not be included in a response.*/
         ///The number of packages this SBOM has
         pub number_of_packages: i64,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///Suppliers of the SBOMs content
         pub suppliers: ::std::vec::Vec<::std::string::String>,
     }
@@ -4336,7 +4330,7 @@ release.*/
         pub description: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was discovered, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub discovered: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub discovered: ::std::option::Option<::jiff::Timestamp>,
         ///Versions that fix this vulnerability, extracted from "fixed" advisory entries
         pub fixed_versions: ::std::vec::Vec<::std::string::String>,
         /**The globally-unique identifier for the vulnerability.
@@ -4345,18 +4339,18 @@ CVE identifier.*/
         pub identifier: ::std::string::String,
         ///The date (in RFC3339 format) of when the vulnerability was last modified, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         pub normative: bool,
         pub packages: ::std::vec::Vec<SbomPackage>,
         ///The date (in RFC3339 format) of when the vulnerability was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when software containing the vulnerability first released, if known.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub released: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub released: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the vulnerability identifier was reserved, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub reserved: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub reserved: ::std::option::Option<::jiff::Timestamp>,
         pub scores: ::std::vec::Vec<ScoredVector>,
         pub status: ::std::string::String,
         ///The title of the vulnerability, if known.
@@ -4364,7 +4358,7 @@ CVE identifier.*/
         pub title: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was last withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl SbomStatus {
         pub fn builder() -> builder::SbomStatus {
@@ -4384,13 +4378,13 @@ CVE identifier.*/
         pub document_id: ::std::option::Option<::std::string::String>,
         pub id: ::std::string::String,
         ///The timestamp the document was ingested
-        pub ingested: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub ingested: ::jiff::Timestamp,
         pub labels: Labels,
         pub name: ::std::string::String,
         ///The number of packages this SBOM has
         pub number_of_packages: i64,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub sha256: ::std::string::String,
         pub sha384: ::std::string::String,
         pub sha512: ::std::string::String,
@@ -4568,7 +4562,7 @@ the pre-parsed numeric values and the original vector for display or re-parsing.
     #[derive(::serde::Deserialize, ::serde::Serialize, Clone, Debug, PartialEq)]
     pub struct SourceDocument {
         ///The timestamp the document was ingested
-        pub ingested: ::chrono::DateTime<::chrono::offset::Utc>,
+        pub ingested: ::jiff::Timestamp,
         pub sha256: ::std::string::String,
         pub sha384: ::std::string::String,
         pub sha512: ::std::string::String,
@@ -5064,10 +5058,10 @@ determined, this field will not be included in a response.*/
         pub labels: Labels,
         ///The date (in RFC3339 format) of when the advisory was last modified, if any.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the advisory was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///All CVSS scores with their raw vector strings from the advisory for this vulnerability.
         pub scores: ::std::vec::Vec<ScoredVector>,
         ///The title of the advisory as assigned by the issuing organization.
@@ -5077,7 +5071,7 @@ determined, this field will not be included in a response.*/
         pub uuid: ::std::string::String,
         ///The date (in RFC3339 format) of when the advisory was withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl VulnerabilityAdvisoryHead {
         pub fn builder() -> builder::VulnerabilityAdvisoryHead {
@@ -5111,12 +5105,12 @@ determined, this field will not be included in a response.*/
         pub labels: Labels,
         ///The date (in RFC3339 format) of when the advisory was last modified, if any.
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         ///The total number of vulnerabilities described by this advisory
         pub number_of_vulnerabilities: i64,
         ///The date (in RFC3339 format) of when the advisory was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub purls: ::std::collections::HashMap<
             ::std::string::String,
             ::std::vec::Vec<VulnerabilityAdvisoryStatus>,
@@ -5132,7 +5126,7 @@ determined, this field will not be included in a response.*/
         pub uuid: ::std::string::String,
         ///The date (in RFC3339 format) of when the advisory was withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl VulnerabilityAdvisorySummary {
         pub fn builder() -> builder::VulnerabilityAdvisorySummary {
@@ -5154,7 +5148,7 @@ determined, this field will not be included in a response.*/
         pub description: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was discovered, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub discovered: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub discovered: ::std::option::Option<::jiff::Timestamp>,
         /**Reports that this vulnerability is exploited, or that working exploit
 code for it exists (e.g. from the CISA KEV catalog), if any.*/
         pub exploits: ::std::vec::Vec<Exploit>,
@@ -5164,17 +5158,17 @@ CVE identifier.*/
         pub identifier: ::std::string::String,
         ///The date (in RFC3339 format) of when the vulnerability was last modified, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         pub normative: bool,
         ///The date (in RFC3339 format) of when the vulnerability was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when software containing the vulnerability first released, if known.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub released: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub released: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the vulnerability identifier was reserved, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub reserved: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub reserved: ::std::option::Option<::jiff::Timestamp>,
         /**Full CVSS scores from the authoritative advisory (the one that contributed the base_score).
 Only present when the `scores` query parameter is set to `true`.*/
         #[serde(skip_serializing_if = "::std::option::Option::is_none")]
@@ -5184,7 +5178,7 @@ Only present when the `scores` query parameter is set to `true`.*/
         pub title: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was last withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl VulnerabilityDetails {
         pub fn builder() -> builder::VulnerabilityDetails {
@@ -5204,30 +5198,30 @@ Only present when the `scores` query parameter is set to `true`.*/
         pub description: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was discovered, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub discovered: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub discovered: ::std::option::Option<::jiff::Timestamp>,
         /**The globally-unique identifier for the vulnerability.
 Traditionally (but not required) refers to the assigned
 CVE identifier.*/
         pub identifier: ::std::string::String,
         ///The date (in RFC3339 format) of when the vulnerability was last modified, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub modified: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub modified: ::std::option::Option<::jiff::Timestamp>,
         pub normative: bool,
         ///The date (in RFC3339 format) of when the vulnerability was published, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when software containing the vulnerability first released, if known.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub released: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub released: ::std::option::Option<::jiff::Timestamp>,
         ///The date (in RFC3339 format) of when the vulnerability identifier was reserved, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub reserved: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub reserved: ::std::option::Option<::jiff::Timestamp>,
         ///The title of the vulnerability, if known.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
         pub title: ::std::option::Option<::std::string::String>,
         ///The date (in RFC3339 format) of when the vulnerability was last withdrawn, if any.
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub withdrawn: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub withdrawn: ::std::option::Option<::jiff::Timestamp>,
     }
     impl VulnerabilityHead {
         pub fn builder() -> builder::VulnerabilityHead {
@@ -5248,7 +5242,7 @@ CVE identifier.*/
         ///The number of packages this SBOM has
         pub number_of_packages: i64,
         #[serde(deserialize_with = "::std::option::Option::deserialize")]
-        pub published: ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+        pub published: ::std::option::Option<::jiff::Timestamp>,
         pub purl_statuses: ::std::collections::HashMap<
             ::std::string::String,
             ::std::vec::Vec<PurlSummary>,
@@ -5374,21 +5368,18 @@ CVE identifier.*/
                 ::std::string::String,
                 ::std::string::String,
             >,
-            ingested: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            ingested: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             issuer: ::std::result::Result<
                 ::std::option::Option<super::OrganizationSummary>,
                 ::std::string::String,
             >,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             sha256: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -5405,7 +5396,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -5459,7 +5450,7 @@ CVE identifier.*/
             }
             pub fn ingested<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.ingested = value
@@ -5497,9 +5488,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -5511,9 +5500,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -5613,9 +5600,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -5687,11 +5672,11 @@ CVE identifier.*/
             >,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             title: ::std::result::Result<
@@ -5700,7 +5685,7 @@ CVE identifier.*/
             >,
             uuid: ::std::result::Result<::std::string::String, ::std::string::String>,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -5772,9 +5757,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -5786,9 +5769,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -5824,9 +5805,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -5880,21 +5859,18 @@ CVE identifier.*/
                 ::std::string::String,
                 ::std::string::String,
             >,
-            ingested: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            ingested: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             issuer: ::std::result::Result<
                 ::std::option::Option<super::OrganizationSummary>,
                 ::std::string::String,
             >,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             sha256: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -5911,7 +5887,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -5965,7 +5941,7 @@ CVE identifier.*/
             }
             pub fn ingested<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.ingested = value
@@ -6003,9 +5979,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -6017,9 +5991,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -6119,9 +6091,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -6192,7 +6162,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             discovered: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             identifier: ::std::result::Result<
@@ -6200,20 +6170,20 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             normative: ::std::result::Result<bool, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             released: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             reserved: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             scores: ::std::result::Result<
@@ -6225,7 +6195,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -6287,9 +6257,7 @@ CVE identifier.*/
             }
             pub fn discovered<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.discovered = value
@@ -6313,9 +6281,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -6339,9 +6305,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -6353,9 +6317,7 @@ CVE identifier.*/
             }
             pub fn released<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.released = value
@@ -6367,9 +6329,7 @@ CVE identifier.*/
             }
             pub fn reserved<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.reserved = value
@@ -6405,9 +6365,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -6477,11 +6435,11 @@ CVE identifier.*/
             >,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             scores: ::std::result::Result<
@@ -6494,7 +6452,7 @@ CVE identifier.*/
             >,
             uuid: ::std::result::Result<::std::string::String, ::std::string::String>,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -6567,9 +6525,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -6581,9 +6537,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -6631,9 +6585,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -6694,7 +6646,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             discovered: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             identifier: ::std::result::Result<
@@ -6702,20 +6654,20 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             normative: ::std::result::Result<bool, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             released: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             reserved: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             status: ::std::result::Result<
@@ -6730,7 +6682,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -6792,9 +6744,7 @@ CVE identifier.*/
             }
             pub fn discovered<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.discovered = value
@@ -6818,9 +6768,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -6844,9 +6792,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -6858,9 +6804,7 @@ CVE identifier.*/
             }
             pub fn released<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.released = value
@@ -6872,9 +6816,7 @@ CVE identifier.*/
             }
             pub fn reserved<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.reserved = value
@@ -6915,9 +6857,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -6984,7 +6924,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             discovered: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             identifier: ::std::result::Result<
@@ -6992,12 +6932,12 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             normative: ::std::result::Result<bool, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             purl_statuses: ::std::result::Result<
@@ -7005,11 +6945,11 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             released: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             reserved: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             title: ::std::result::Result<
@@ -7017,7 +6957,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -7081,9 +7021,7 @@ CVE identifier.*/
             }
             pub fn discovered<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.discovered = value
@@ -7107,9 +7045,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -7133,9 +7069,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -7159,9 +7093,7 @@ CVE identifier.*/
             }
             pub fn released<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.released = value
@@ -7173,9 +7105,7 @@ CVE identifier.*/
             }
             pub fn reserved<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.reserved = value
@@ -7199,9 +7129,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -9781,7 +9709,7 @@ CVE identifier.*/
         pub struct Exploit {
             cve_id: ::std::result::Result<::std::string::String, ::std::string::String>,
             date_reported: ::std::result::Result<
-                ::std::option::Option<::chrono::naive::NaiveDate>,
+                ::std::option::Option<::jiff::civil::Date>,
                 ::std::string::String,
             >,
             id: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -9790,7 +9718,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             remediation_due_date: ::std::result::Result<
-                ::std::option::Option<::chrono::naive::NaiveDate>,
+                ::std::option::Option<::jiff::civil::Date>,
                 ::std::string::String,
             >,
             source: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -9826,9 +9754,7 @@ CVE identifier.*/
             }
             pub fn date_reported<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::naive::NaiveDate>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::civil::Date>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.date_reported = value
@@ -9864,9 +9790,7 @@ CVE identifier.*/
             }
             pub fn remediation_due_date<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::naive::NaiveDate>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::civil::Date>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.remediation_due_date = value
@@ -11486,20 +11410,17 @@ CVE identifier.*/
                 ::std::option::Option<::serde_json::Value>,
                 ::std::string::String,
             >,
-            last_change: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            last_change: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             last_error: ::std::result::Result<
                 ::std::option::Option<::std::string::String>,
                 ::std::string::String,
             >,
             last_run: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             last_success: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             name: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -11553,7 +11474,7 @@ CVE identifier.*/
             }
             pub fn last_change<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.last_change = value
@@ -11577,9 +11498,7 @@ CVE identifier.*/
             }
             pub fn last_run<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.last_run = value
@@ -11591,9 +11510,7 @@ CVE identifier.*/
             }
             pub fn last_success<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.last_success = value
@@ -11683,20 +11600,17 @@ CVE identifier.*/
                 ::std::option::Option<::serde_json::Value>,
                 ::std::string::String,
             >,
-            last_change: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            last_change: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             last_error: ::std::result::Result<
                 ::std::option::Option<::std::string::String>,
                 ::std::string::String,
             >,
             last_run: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             last_success: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             progress: ::std::result::Result<
@@ -11748,7 +11662,7 @@ CVE identifier.*/
             }
             pub fn last_change<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.last_change = value
@@ -11772,9 +11686,7 @@ CVE identifier.*/
             }
             pub fn last_run<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.last_run = value
@@ -11786,9 +11698,7 @@ CVE identifier.*/
             }
             pub fn last_success<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.last_success = value
@@ -11856,10 +11766,7 @@ CVE identifier.*/
         }
         #[derive(Clone, Debug)]
         pub struct ImporterReport {
-            creation: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            creation: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             error: ::std::result::Result<
                 ::std::option::Option<::std::string::String>,
                 ::std::string::String,
@@ -11888,7 +11795,7 @@ CVE identifier.*/
         impl ImporterReport {
             pub fn creation<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.creation = value
@@ -13543,21 +13450,18 @@ CVE identifier.*/
                 ::std::string::String,
                 ::std::string::String,
             >,
-            ingested: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            ingested: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             issuer: ::std::result::Result<
                 ::std::option::Option<super::OrganizationSummary>,
                 ::std::string::String,
             >,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             sha256: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -13574,7 +13478,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -13628,7 +13532,7 @@ CVE identifier.*/
             }
             pub fn ingested<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.ingested = value
@@ -13666,9 +13570,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -13680,9 +13582,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -13782,9 +13682,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -14397,7 +14295,7 @@ CVE identifier.*/
         pub struct PaginatedResultsExploitItemsItem {
             cve_id: ::std::result::Result<::std::string::String, ::std::string::String>,
             date_reported: ::std::result::Result<
-                ::std::option::Option<::chrono::naive::NaiveDate>,
+                ::std::option::Option<::jiff::civil::Date>,
                 ::std::string::String,
             >,
             id: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -14406,7 +14304,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             remediation_due_date: ::std::result::Result<
-                ::std::option::Option<::chrono::naive::NaiveDate>,
+                ::std::option::Option<::jiff::civil::Date>,
                 ::std::string::String,
             >,
             source: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -14442,9 +14340,7 @@ CVE identifier.*/
             }
             pub fn date_reported<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::naive::NaiveDate>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::civil::Date>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.date_reported = value
@@ -14480,9 +14376,7 @@ CVE identifier.*/
             }
             pub fn remediation_due_date<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::naive::NaiveDate>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::civil::Date>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.remediation_due_date = value
@@ -14852,10 +14746,7 @@ CVE identifier.*/
         }
         #[derive(Clone, Debug)]
         pub struct PaginatedResultsImporterReportItemsItem {
-            creation: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            creation: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             error: ::std::result::Result<
                 ::std::option::Option<::std::string::String>,
                 ::std::string::String,
@@ -14884,7 +14775,7 @@ CVE identifier.*/
         impl PaginatedResultsImporterReportItemsItem {
             pub fn creation<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.creation = value
@@ -16889,15 +16780,12 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             id: ::std::result::Result<::std::string::String, ::std::string::String>,
-            ingested: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            ingested: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             name: ::std::result::Result<::std::string::String, ::std::string::String>,
             number_of_packages: ::std::result::Result<i64, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             sha256: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -17010,7 +16898,7 @@ CVE identifier.*/
             }
             pub fn ingested<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.ingested = value
@@ -17060,9 +16948,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -17277,15 +17163,12 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             id: ::std::result::Result<::std::string::String, ::std::string::String>,
-            ingested: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            ingested: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             name: ::std::result::Result<::std::string::String, ::std::string::String>,
             number_of_packages: ::std::result::Result<i64, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             sha256: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -17403,7 +17286,7 @@ CVE identifier.*/
             }
             pub fn ingested<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.ingested = value
@@ -17453,9 +17336,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -17857,15 +17738,12 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             id: ::std::result::Result<::std::string::String, ::std::string::String>,
-            ingested: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            ingested: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             name: ::std::result::Result<::std::string::String, ::std::string::String>,
             number_of_packages: ::std::result::Result<i64, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             sha256: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -17983,7 +17861,7 @@ CVE identifier.*/
             }
             pub fn ingested<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.ingested = value
@@ -18033,9 +17911,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -18762,7 +18638,7 @@ CVE identifier.*/
         pub struct ProductSbomHead {
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -18789,9 +18665,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -19094,7 +18968,7 @@ CVE identifier.*/
         pub struct Progress {
             current: ::std::result::Result<i32, ::std::string::String>,
             estimated_completion: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
+                ::jiff::Timestamp,
                 ::std::string::String,
             >,
             estimated_seconds_remaining: ::std::result::Result<
@@ -19141,7 +19015,7 @@ CVE identifier.*/
             }
             pub fn estimated_completion<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.estimated_completion = value
@@ -19249,7 +19123,7 @@ CVE identifier.*/
         pub struct ProgressDetails {
             current: ::std::result::Result<i32, ::std::string::String>,
             estimated_completion: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
+                ::jiff::Timestamp,
                 ::std::string::String,
             >,
             estimated_seconds_remaining: ::std::result::Result<
@@ -19291,7 +19165,7 @@ CVE identifier.*/
             }
             pub fn estimated_completion<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.estimated_completion = value
@@ -19397,11 +19271,11 @@ CVE identifier.*/
             >,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             status: ::std::result::Result<
@@ -19414,7 +19288,7 @@ CVE identifier.*/
             >,
             uuid: ::std::result::Result<::std::string::String, ::std::string::String>,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -19487,9 +19361,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -19501,9 +19373,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -19551,9 +19421,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -20997,10 +20865,7 @@ CVE identifier.*/
         }
         #[derive(Clone, Debug)]
         pub struct Report {
-            end_date: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            end_date: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             messages: ::std::result::Result<
                 ::std::collections::HashMap<
                     ::std::string::String,
@@ -21015,10 +20880,7 @@ CVE identifier.*/
                 ::std::option::Option<u64>,
                 ::std::string::String,
             >,
-            start_date: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            start_date: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
         }
         impl ::std::default::Default for Report {
             fn default() -> Self {
@@ -21033,7 +20895,7 @@ CVE identifier.*/
         impl Report {
             pub fn end_date<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.end_date = value
@@ -21079,7 +20941,7 @@ CVE identifier.*/
             }
             pub fn start_date<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.start_date = value
@@ -21279,20 +21141,17 @@ CVE identifier.*/
                 ::std::option::Option<::serde_json::Value>,
                 ::std::string::String,
             >,
-            last_change: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            last_change: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             last_error: ::std::result::Result<
                 ::std::option::Option<::std::string::String>,
                 ::std::string::String,
             >,
             last_run: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             last_success: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             name: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -21346,7 +21205,7 @@ CVE identifier.*/
             }
             pub fn last_change<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.last_change = value
@@ -21370,9 +21229,7 @@ CVE identifier.*/
             }
             pub fn last_run<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.last_run = value
@@ -21384,9 +21241,7 @@ CVE identifier.*/
             }
             pub fn last_success<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.last_success = value
@@ -21484,11 +21339,11 @@ CVE identifier.*/
             >,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             status: ::std::result::Result<
@@ -21501,7 +21356,7 @@ CVE identifier.*/
             >,
             uuid: ::std::result::Result<::std::string::String, ::std::string::String>,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -21574,9 +21429,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -21588,9 +21441,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -21638,9 +21489,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -21705,7 +21554,7 @@ CVE identifier.*/
             name: ::std::result::Result<::std::string::String, ::std::string::String>,
             number_of_packages: ::std::result::Result<i64, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             suppliers: ::std::result::Result<
@@ -21819,9 +21668,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -22512,7 +22359,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             discovered: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             fixed_versions: ::std::result::Result<
@@ -22524,7 +22371,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             normative: ::std::result::Result<bool, ::std::string::String>,
@@ -22533,15 +22380,15 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             released: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             reserved: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             scores: ::std::result::Result<
@@ -22554,7 +22401,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -22634,9 +22481,7 @@ CVE identifier.*/
             }
             pub fn discovered<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.discovered = value
@@ -22674,9 +22519,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -22712,9 +22555,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -22726,9 +22567,7 @@ CVE identifier.*/
             }
             pub fn released<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.released = value
@@ -22740,9 +22579,7 @@ CVE identifier.*/
             }
             pub fn reserved<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.reserved = value
@@ -22790,9 +22627,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -22875,15 +22710,12 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             id: ::std::result::Result<::std::string::String, ::std::string::String>,
-            ingested: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            ingested: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             name: ::std::result::Result<::std::string::String, ::std::string::String>,
             number_of_packages: ::std::result::Result<i64, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             sha256: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -22996,7 +22828,7 @@ CVE identifier.*/
             }
             pub fn ingested<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.ingested = value
@@ -23046,9 +22878,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -23332,10 +23162,7 @@ CVE identifier.*/
         }
         #[derive(Clone, Debug)]
         pub struct SourceDocument {
-            ingested: ::std::result::Result<
-                ::chrono::DateTime<::chrono::offset::Utc>,
-                ::std::string::String,
-            >,
+            ingested: ::std::result::Result<::jiff::Timestamp, ::std::string::String>,
             sha256: ::std::result::Result<::std::string::String, ::std::string::String>,
             sha384: ::std::result::Result<::std::string::String, ::std::string::String>,
             sha512: ::std::result::Result<::std::string::String, ::std::string::String>,
@@ -23355,7 +23182,7 @@ CVE identifier.*/
         impl SourceDocument {
             pub fn ingested<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<::chrono::DateTime<::chrono::offset::Utc>>,
+                T: ::std::convert::TryInto<::jiff::Timestamp>,
                 T::Error: ::std::fmt::Display,
             {
                 self.ingested = value
@@ -23767,11 +23594,11 @@ CVE identifier.*/
             >,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             scores: ::std::result::Result<
@@ -23784,7 +23611,7 @@ CVE identifier.*/
             >,
             uuid: ::std::result::Result<::std::string::String, ::std::string::String>,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -23857,9 +23684,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -23871,9 +23696,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -23921,9 +23744,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -24066,12 +23887,12 @@ CVE identifier.*/
             >,
             labels: ::std::result::Result<super::Labels, ::std::string::String>,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             number_of_vulnerabilities: ::std::result::Result<i64, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             purls: ::std::result::Result<
@@ -24095,7 +23916,7 @@ CVE identifier.*/
             >,
             uuid: ::std::result::Result<::std::string::String, ::std::string::String>,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -24173,9 +23994,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -24201,9 +24020,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -24282,9 +24099,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -24357,7 +24172,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             discovered: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             exploits: ::std::result::Result<
@@ -24369,20 +24184,20 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             normative: ::std::result::Result<bool, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             released: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             reserved: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             scores: ::std::result::Result<
@@ -24394,7 +24209,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -24472,9 +24287,7 @@ CVE identifier.*/
             }
             pub fn discovered<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.discovered = value
@@ -24510,9 +24323,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -24536,9 +24347,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -24550,9 +24359,7 @@ CVE identifier.*/
             }
             pub fn released<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.released = value
@@ -24564,9 +24371,7 @@ CVE identifier.*/
             }
             pub fn reserved<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.reserved = value
@@ -24604,9 +24409,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -24678,7 +24481,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             discovered: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             identifier: ::std::result::Result<
@@ -24686,20 +24489,20 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             modified: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             normative: ::std::result::Result<bool, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             released: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             reserved: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             title: ::std::result::Result<
@@ -24707,7 +24510,7 @@ CVE identifier.*/
                 ::std::string::String,
             >,
             withdrawn: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
         }
@@ -24768,9 +24571,7 @@ CVE identifier.*/
             }
             pub fn discovered<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.discovered = value
@@ -24794,9 +24595,7 @@ CVE identifier.*/
             }
             pub fn modified<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.modified = value
@@ -24820,9 +24619,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value
@@ -24834,9 +24631,7 @@ CVE identifier.*/
             }
             pub fn released<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.released = value
@@ -24848,9 +24643,7 @@ CVE identifier.*/
             }
             pub fn reserved<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.reserved = value
@@ -24874,9 +24667,7 @@ CVE identifier.*/
             }
             pub fn withdrawn<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.withdrawn = value
@@ -24945,7 +24736,7 @@ CVE identifier.*/
             name: ::std::result::Result<::std::string::String, ::std::string::String>,
             number_of_packages: ::std::result::Result<i64, ::std::string::String>,
             published: ::std::result::Result<
-                ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
+                ::std::option::Option<::jiff::Timestamp>,
                 ::std::string::String,
             >,
             purl_statuses: ::std::result::Result<
@@ -25074,9 +24865,7 @@ CVE identifier.*/
             }
             pub fn published<T>(mut self, value: T) -> Self
             where
-                T: ::std::convert::TryInto<
-                    ::std::option::Option<::chrono::DateTime<::chrono::offset::Utc>>,
-                >,
+                T: ::std::convert::TryInto<::std::option::Option<::jiff::Timestamp>>,
                 T::Error: ::std::fmt::Display,
             {
                 self.published = value

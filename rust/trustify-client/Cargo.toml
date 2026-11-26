@@ -13,9 +13,9 @@ categories = ["api-bindings", "web-programming::http-client"]
 [dependencies]
 async-trait = "0.1"
 bytes = "1"
-chrono = { version = "0.4", default-features = false, features = ["serde"] }
 futures-core = "0.3"
 futures-timer = "3"
+jiff = { version = "1", default-features = false, features = ["std", "serde"] }
 progenitor-client = "=0.15.0"
 regress = "0.10"
 reqwest = { version = "0.13", features = ["json", "query", "stream"] }

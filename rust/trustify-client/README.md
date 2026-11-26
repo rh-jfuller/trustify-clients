@@ -5,6 +5,9 @@ available as `trustify_client::api`; `TrustifyClient` configures shared request
 behavior such as bearer-token acquisition for both generated and ergonomic
 calls.
 
+API date-time fields use `jiff::Timestamp` (UTC instants), and date-only fields
+use `jiff::civil::Date`. Both serialize as strings in the API's date formats.
+
 ```rust,no_run
 use trustify_client::{RetryPolicy, TrustifyClient};
 

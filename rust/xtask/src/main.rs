@@ -8,8 +8,9 @@ use std::{
 
 use anyhow::{Context, bail};
 use openapiv3::OpenAPI;
-use progenitor::{GenerationSettings, Generator, InterfaceStyle, TagStyle};
+use progenitor::{GenerationSettings, Generator, InterfaceStyle, TagStyle, TypeImpl};
 use quote::quote;
+use schemars::schema::{InstanceType, SchemaObject};
 use serde_yaml::{Mapping, Value};
 
 fn main() -> anyhow::Result<()> {
@@ -42,6 +43,22 @@ fn generate_api() -> anyhow::Result<()> {
         .with_inner_type(quote! { crate::auth::ClientContext })
         .with_pre_hook_async(quote! { crate::client::prepare_request })
         .with_derive("PartialEq");
+
+    // Keep OpenAPI date formats as strings on the wire using Jiff's Serde support.
+    for (format, rust_type) in [
+        ("date-time", "::jiff::Timestamp"),
+        ("date", "::jiff::civil::Date"),
+    ] {
+        settings.with_conversion(
+            SchemaObject {
+                instance_type: Some(InstanceType::String.into()),
+                format: Some(format.to_owned()),
+                ..Default::default()
+            },
+            rust_type,
+            [TypeImpl::FromStr, TypeImpl::Display].into_iter(),
+        );
+    }
 
     let mut generator = Generator::new(&settings);
     let tokens = generator
